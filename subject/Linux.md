@@ -316,7 +316,7 @@ Bon à savoir: La commande `cat` permet de concatener plusieurs fichiers (les af
 Micro est un éditeur de texte simple pour Linux.
 
 - Ctrl-S : Enregistrer le fichier
-- Ctrl-Q : Quitter l’éditeur
+- Ctrl-E suivi de la commande "quit" suivi de Entrée: Quitte l'éditeur
 - Ctrl-A : Tout sélectionner
 - Shift+flèches : Sélection à partir du curseur
 - Ctrl-C : Copier la sélection
