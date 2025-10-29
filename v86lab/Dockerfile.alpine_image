@@ -13,10 +13,11 @@ ENV ADDPKGS="python3 gcc musl-dev make docs micro busybox-extras e2fsprogs coreu
 RUN apk add openrc alpine-base agetty alpine-conf linux-$KERNEL linux-firmware-none $ADDPKGS
 
 #Patch micro to provide an alternative binding NextSplit to Ctrl+W (which close the browser tab). Fix: rebinding Ctrl+Space to NextSplit
+#Also Alt+Q to quit
 RUN mv /usr/bin/micro /usr/bin/_micro ;\
 mkdir /etc/micro;\
 chmod +r /etc/micro;\
-printf '{"Alt-/": "lua:comment.comment","CtrlUnderscore": "lua:comment.comment","CtrlSpace": "NextSplit"}' > /etc/micro/bindings.json ;\
+printf '{"Alt-/": "lua:comment.comment","CtrlUnderscore": "lua:comment.comment","CtrlSpace": "NextSplit", "Altq": "Quit"}' > /etc/micro/bindings.json ;\
 printf '#!/bin/sh\n/usr/bin/_micro -config-dir /etc/micro $@' > /usr/bin/micro;\
 chmod +x /usr/bin/micro
 
